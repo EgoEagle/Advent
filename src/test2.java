@@ -12,14 +12,25 @@ public class test2 {
 		
 		while(scanner.hasNextLine()) {
 			String value = scanner.nextLine();
-			if(value.contains("X")) score++;
-			else if(value.contains("Y")) score+=2;
-			else if(value.contains("Z")) score+=3;
+			if(value.contains("X")) {  //LOSE
+				if(value.contains("A")) score+=3;
+				else if(value.contains("B")) score++;
+				else if(value.contains("C")) score+=2;
+			}
 			
-			if(value.contains("A X") || value.contains("B Y") || value.contains("C Z") )score+= 3;
-			else if(value.contains("A Y")) score+= 6;
-			else if(value.contains("B Z")) score+= 6;
-			else if(value.contains("C X")) score+= 6;
+			else if(value.contains("Y")) { //DRAW
+				score+=3;
+				if(value.contains("A")) score+=1;
+				else if(value.contains("B")) score+=2;
+				else if(value.contains("C")) score+=3;
+			}
+			
+			else if(value.contains("Z")) { //WIN
+				score+=6;
+				if(value.contains("A")) score+=2;
+				else if(value.contains("B")) score+=3;
+				else if(value.contains("C")) score++;
+			}
 			
 			
 		}
